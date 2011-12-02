@@ -1,0 +1,28 @@
+# README
+
+This is a proof of concept. Do not use it in production
+
+## DEPLOY
+
+    git clone git://github.com/stf-storage/stf-on-cloud.git
+    cd stf-on-cloud
+    ./setup.sh
+    dotcloud push your-app-name .
+
+## SETUP
+
+    mysql -h ... -P ... -uroot -p
+    \. stf/misc/stf_schwartz.sql
+
+## START USING IT
+
+    # create bucket
+    lwp-request -m PUT http://your-app-name/test
+
+    # create object
+    lwp-request -m PUT http://your-app-name/test/test.txt
+    This is a test
+    ^D
+
+    # retrieve object
+    lwp-request http://your-app-name/test/test.txt
