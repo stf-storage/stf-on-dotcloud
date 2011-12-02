@@ -62,6 +62,18 @@ ln -s etc/dispatcher.psgi dispatcher/app.psgi
 ln -s etc/storage.psgi storage/app.psgi
 ln -s etc/admin.psgi admin/app.psgi
 
+if [ ! -f "dispatcher/nginx.conf" ]; then
+    cat <<'EOM' > "dispatcher/nginx.conf"
+location = /reproxy {
+    resolver 64.27.57.11;
+    internal;
+    set $reproxy $upstream_http_x_reproxy_url;
+    proxy_pass $reproxy;
+    proxy_hide_header Content-Type;
+}
+EOM
+fi
+
 if [ ! -f "worker/supervisord.conf" ]; then
     cat <<EOM > worker/supervisord.conf
 [program:stf-worker]
