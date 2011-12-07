@@ -38,7 +38,7 @@ worker101:
         DEPLOY_HOME: /home/dotcloud/current
         STF_QUEUE_TYPE: TheSchwartz
         STF_DEBUG: 1
-masterdb:
+db:
     type: mysql
 EOM
 fi
