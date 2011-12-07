@@ -15,7 +15,7 @@ dispatcher101:
         DEPLOY_HOME: /home/dotcloud/current
         STF_DEBUG: 1
         STF_HOST_ID: 101
-        STF_QUEUE_TYPE: TheSchwartz
+        STF_QUEUE_TYPE: Schwartz
         STF_NGINX_STYLE_REPROXY: 1
 storage101:
     approot: storage
@@ -36,7 +36,7 @@ worker101:
         - TheSchwartz
     environment:
         DEPLOY_HOME: /home/dotcloud/current
-        STF_QUEUE_TYPE: TheSchwartz
+        STF_QUEUE_TYPE: Schwartz
         STF_DEBUG: 1
 db:
     type: mysql
@@ -71,7 +71,7 @@ fi
 if [ ! -f "worker/supervisord.conf" ]; then
     cat <<EOM > worker/supervisord.conf
 [program:stf-worker]
-command = perl /home/dotcloud/current/bin/stf-worker
+command = perl -I/home/dotcloud/current/lib /home/dotcloud/current/bin/stf-worker
 stderr_logfile = /var/log/supervisor/stf-worker.error.log
 stdout_logfile = /var/log/supervisor/stf-worker.log
 EOM
