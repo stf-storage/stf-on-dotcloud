@@ -7,7 +7,7 @@ This is a proof of concept. Do not use it in production
     git clone git://github.com/stf-storage/stf-on-cloud.git
     cd stf-on-cloud
     ./setup.sh
-    dotcloud push your-app-name .
+    dotcloud push --all your-app-name .
 
 ## SETUP
 

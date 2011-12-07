@@ -2,12 +2,6 @@
 
 if [ ! -d "stf" ]; then
     git clone git://github.com/stf-storage/stf.git stf
-    # XXX Maybe put this in master in the future
-    cd stf
-    git checkout -b topic/dotcloud
-    # just in case
-    git pull origin topic/dotcloud
-    cd ..
 fi
 
 if [ ! -f dotcloud.yml ]; then
